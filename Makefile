@@ -17,7 +17,7 @@ run:
  
 	# start all containers which are in the exited state.
 	#docker start $(docker ps -a -q --filter "status=exited")
-	sudo docker start  fake-backend
+	sudo docker start  fakebackend
 	
 	# to let the container start after run test
 	sleep 5
