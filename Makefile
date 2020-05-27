@@ -30,7 +30,7 @@ run:
 
 test:
 
-	if [ "$$(curl -X GET http://localhost:80/health)" = "OK" ]; then echo "test OK => status:200"; exit 0; else echo "test KO status:500"; exit 1; fi
+	if [ "$$(curl -X GET http://localhost:80/health)" = "ok" ]; then echo "test OK => status:200"; exit 0; else echo "test KO status:500"; exit 1; fi
 
 clean:
 	docker rm -vf  fake-backend
