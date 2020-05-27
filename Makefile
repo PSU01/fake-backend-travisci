@@ -16,7 +16,8 @@ run:
 	docker run --name fakebackend -d -v ${PWD}/fake-backend:/etc/backend/static -p 80:3000 -e  DATABASE_HOST=dbpsu -e  DATABASE_PORT=3306 -e  DATABASE_USER=battleuser -e DATABASE_PASSWORD=battlepass -e DATABASE_NAME=battleboat  --network fbk_network  $(IMAGE)
  
 	# start all containers which are in the exited state.
-	docker start $(docker ps -a -q --filter "status=exited")
+	#docker start $(docker ps -a -q --filter "status=exited")
+	docker start  `docker ps -a -q --filter "name=fake-backend"`
 	
 	# to let the container start after run test
 	sleep 5
