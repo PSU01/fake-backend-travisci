@@ -13,8 +13,8 @@ run:
 	docker run --name dbpsu -d -v mysql_data:/var/lib/mysql -p 3306:3306 -e  MYSQL_ROOT_PASSWORD=rootpwdpsu -e  MYSQL_DATABASE=battleboat -e MYSQL_USER=battleuser -e  MYSQL_PASSWORD=battlepass --network fbk_network  mysql:5.7
 	sleep 5s
 
-	docker run --name fakebackend -d -v ${PWD}/fake-backend:/etc/backend/static -p 80:3000 -e  DATABASE_HOST=dbpsu -e  DATABASE_PORT=3306 -e  DATABASE_USER=battleuser -e DATABASE_PASSWORD=battlepass -e DATABASE_NAME=battleboat  --network fbk_network  $(IMAGE) --restart always
-
+	docker run --name fakebackend -d -v ${PWD}/fake-backend:/etc/backend/static -p 80:3000 -e  DATABASE_HOST=dbpsu -e  DATABASE_PORT=3306 -e  DATABASE_USER=battleuser -e DATABASE_PASSWORD=battlepass -e DATABASE_NAME=battleboat  --network fbk_network  $(IMAGE)
+ 
 	# start all containers which are in the exited state.
 	docker start $(docker ps -a -q --filter "status=exited")
 	
