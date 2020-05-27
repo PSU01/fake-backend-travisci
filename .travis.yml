@@ -13,7 +13,7 @@ before_install:
 script:
   - 'make image'
   - 'make run'  
-
+  - 'make test'
 after_success:
   - 'make clean'
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
