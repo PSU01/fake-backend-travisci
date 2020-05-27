@@ -22,7 +22,7 @@ run:
 
 test:
 
-	if [ "$$(curl -X GET http://127.0.0.1:3000/health)" = "200" ]; then echo "test OK"; exit 0; else echo "test KO"; exit 1; fi echo "End test"
+	if [ "$$(curl -X GET http://localhost:80/health)" ] = "200" ); then echo "test OK"; exit 0; else echo "test KO"; exit 1; fi echo "End test"
 
 
 clean:
