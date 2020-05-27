@@ -3,7 +3,7 @@ sudo: 'required'
 services:
   - 'docker'
 
-before_install:
+before_install: gem install bundler --pre
   - './.travis/main.sh'
   - 'make network'
   - 'make volume'
